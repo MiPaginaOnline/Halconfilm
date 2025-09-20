@@ -16,25 +16,28 @@
     }
     @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
+    /* HEADER flotante con efecto blur */
     header {
       position: fixed;
-      top: 0;
-      width: 100%;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 1000;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 0.8rem 1rem;
-      background: rgba(10, 15, 35, 0.4);
+      background: rgba(10, 15, 35, 0.35);
       backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     }
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: #ffffff;
+      margin-right: 1.5rem;
       letter-spacing: 2px;
-      text-transform: uppercase;
     }
     nav ul {
       list-style: none;
@@ -72,7 +75,17 @@
       .menu-toggle { display: flex; }
     }
 
-    section { padding: 6rem 2rem; margin-top: 60px; }
+    /* CONTENIDO CENTRADO */
+    section {
+      padding: 6rem 2rem;
+      margin-top: 120px; /* espacio para el sticky */
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    /* CAJAS */
     .box {
       background: rgba(0, 0, 0, 0.75);
       padding: 1.8rem;
@@ -92,6 +105,14 @@
       transform: translateY(-8px);
       box-shadow: 0 10px 25px rgba(74, 157, 255, 0.4);
     }
+
+    /* TÍTULOS con color distinto */
+    h2 {
+      color: #4a9dff;
+      margin-bottom: 1rem;
+    }
+
+    /* BOTÓN CONTACTO */
     .contact-btn {
       display: inline-block;
       background: linear-gradient(135deg, #3f87ff, #295dcc);
@@ -106,12 +127,14 @@
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(63, 135, 255, 0.6);
     }
+
     footer {
       text-align: center;
       padding: 2rem;
       background: #000;
       color: #888;
       font-size: 0.9rem;
+      margin-top: 3rem;
     }
   </style>
 </head>
@@ -123,8 +146,8 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#protege">Protege y personaliza</a></li>
-        <li><a href="#decada">Más de una década</a></li>
+        <li><a href="#protege">Protege</a></li>
+        <li><a href="#decada">Experiencia</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#contacto">Contacto</a></li>
         <li><a href="galeria.html">Galería</a></li>
