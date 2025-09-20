@@ -9,14 +9,13 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #050a1a;
+      background: #050a1a;
       color: #f5f5f5;
       animation: fadeIn 1.5s ease-in-out;
-      scroll-behavior: smooth;
     }
-    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
 
-    /* HEADER flotante con efecto blur */
+    /* HEADER flotante con blur */
     header {
       position: fixed;
       top: 20px;
@@ -24,19 +23,20 @@
       transform: translateX(-50%);
       z-index: 1000;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       background: rgba(10, 15, 35, 0.35);
       backdrop-filter: blur(15px);
       padding: 0.8rem 2rem;
       border-radius: 50px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 1000px;
     }
     .logo {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: #ffffff;
-      margin-right: 1.5rem;
       letter-spacing: 2px;
     }
     nav ul {
@@ -56,24 +56,6 @@
       color: #4a9dff;
       text-shadow: 0 0 8px #4a9dff;
     }
-    .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
-    .menu-toggle span {
-      width: 28px; height: 3px;
-      background: #fff; margin: 4px 0;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px; right: 0;
-        background: rgba(5, 10, 26, 0.95);
-        padding: 1rem;
-        border-radius: 8px 0 0 8px;
-      }
-      nav ul.active { display: flex; }
-      .menu-toggle { display: flex; }
-    }
 
     /* CONTENIDO CENTRADO */
     section {
@@ -84,49 +66,33 @@
       margin-right: auto;
       text-align: center;
     }
-
-    /* CAJAS */
-    .box {
-      background: rgba(0, 0, 0, 0.75);
-      padding: 1.8rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.6);
-      margin-bottom: 2rem;
-      transition: transform 0.3s, box-shadow 0.3s;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    .box.visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.8s ease-in-out;
-    }
-    .box:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 10px 25px rgba(74, 157, 255, 0.4);
-    }
-
-    /* TÍTULOS con color distinto */
     h2 {
       color: #4a9dff;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
+    .box {
+      background: rgba(0,0,0,0.75);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+      margin-bottom: 2rem;
+      transition: transform 0.3s;
+    }
+    .box:hover { transform: translateY(-5px); }
 
-    /* BOTÓN CONTACTO */
     .contact-btn {
-      display: inline-block;
-      background: linear-gradient(135deg, #3f87ff, #295dcc);
+      background: #4a9dff;
       color: #fff;
-      padding: 0.9rem 1.8rem;
-      border-radius: 30px;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      border: none;
       text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.3s, box-shadow 0.3s;
+      font-weight: bold;
+      transition: background 0.3s;
+      display: inline-block;
+      margin-top: 1rem;
     }
-    .contact-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(63, 135, 255, 0.6);
-    }
+    .contact-btn:hover { background: #2a5cc0; }
 
     footer {
       text-align: center;
@@ -141,13 +107,10 @@
 <body>
   <header>
     <div class="logo">Halconfilm</div>
-    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
-      <span></span><span></span><span></span>
-    </div>
     <nav>
       <ul>
-        <li><a href="#protege">Protege</a></li>
-        <li><a href="#decada">Experiencia</a></li>
+        <li><a href="#protege">Protege y personaliza</a></li>
+        <li><a href="#decada">Más de una década</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#contacto">Contacto</a></li>
         <li><a href="galeria.html">Galería</a></li>
@@ -156,32 +119,32 @@
   </header>
 
   <section id="protege">
+    <h2>Protege y personaliza tu vehículo</h2>
     <div class="box">
-      <h2>Protege y personaliza tu vehículo</h2>
       <p>En Halconfilm cuidamos cada detalle de tu coche. Nos especializamos en mejorar su estética y protegerlo con las mejores técnicas y materiales.</p>
     </div>
   </section>
 
   <section id="decada">
+    <h2>Más de una década de experiencia</h2>
     <div class="box">
-      <h2>Más de una década de experiencia</h2>
       <p>Desde 2008, en Halconfilm nos hemos consolidado como referentes en personalización y protección automotriz. Nuestra trayectoria avala la calidad de nuestro trabajo, la confianza de nuestros clientes y la innovación constante.</p>
     </div>
   </section>
 
   <section id="servicios">
-    <div class="box"><h2>Nuestros Servicios</h2></div>
-    <div class="box">Tintado profesional de lunas</div>
-    <div class="box">Personalización textil exclusiva</div>
-    <div class="box">Protección avanzada de cristales</div>
-    <div class="box">Pulido y restauración de ópticas</div>
-    <div class="box">Rotulación y vinilos de alta calidad</div>
-    <div class="box">Cuidado estético completo</div>
+    <h2>Nuestros Servicios</h2>
+    <div class="box"><p><strong>Tintado profesional de lunas</strong> – Protege tu interior de los rayos UV, mejora la privacidad y aporta un acabado elegante.</p></div>
+    <div class="box"><p><strong>Personalización textil exclusiva</strong> – Diseñamos ropa y accesorios únicos que reflejan tu estilo y pasión por el motor.</p></div>
+    <div class="box"><p><strong>Protección avanzada de cristales</strong> – Evita roturas y daños con películas de alta resistencia que garantizan seguridad y durabilidad.</p></div>
+    <div class="box"><p><strong>Pulido y restauración de ópticas</strong> – Recupera la claridad y luminosidad de tus faros para conducir con mayor seguridad y estilo.</p></div>
+    <div class="box"><p><strong>Rotulación y vinilos de alta calidad</strong> – Personaliza tu coche con vinilos resistentes y diseños que marcan la diferencia.</p></div>
+    <div class="box"><p><strong>Cuidado estético completo</strong> – Tratamientos integrales que devuelven el brillo y protegen cada parte de tu vehículo.</p></div>
   </section>
 
   <section id="contacto">
+    <h2>Contacto</h2>
     <div class="box">
-      <h2>Contacto</h2>
       <p>¿Quieres transformar tu vehículo y darle un aspecto único? Confía en los especialistas y déjanos asesorarte con la mejor atención personalizada.</p>
       <a class="contact-btn" href="https://wa.me/34635871312" target="_blank">¡Contáctame en WhatsApp!</a>
     </div>
@@ -190,20 +153,5 @@
   <footer>
     <p>© 2025 Halconfilm. Todos los derechos reservados.</p>
   </footer>
-
-  <script>
-    // Animación al hacer scroll
-    const boxes = document.querySelectorAll('.box');
-    const revealOnScroll = () => {
-      boxes.forEach(box => {
-        const rect = box.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-          box.classList.add('visible');
-        }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-  </script>
 </body>
 </html>
