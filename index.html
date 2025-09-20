@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: #050a1a; /* mismo fondo que galería */
+      background: #050a1a; /* fondo azul muy oscuro */
       color: #f5f5f5;
       animation: fadeIn 1.5s ease-in-out;
     }
@@ -58,40 +58,10 @@
       text-shadow: 0 0 8px #4a9dff;
     }
 
-    /* MENU HAMBURGUESA */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .menu-toggle span {
-      width: 25px;
-      height: 3px;
-      background: #fff;
-      margin: 4px 0;
-      border-radius: 2px;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        background: rgba(10, 15, 35, 0.95);
-        padding: 1rem;
-        border-radius: 12px;
-        width: 200px;
-      }
-      nav ul.active { display: flex; }
-      .menu-toggle { display: flex; }
-    }
-
     /* SECCIONES CENTRADAS */
     section {
       padding: 3rem 2rem;
-      margin-top: 100px;
+      margin-top: 100px; /* espacio para sticky */
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
@@ -158,11 +128,6 @@
 <body>
   <header>
     <div class="logo">Halconfilm</div>
-    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
     <nav>
       <ul>
         <li><a href="#protege">Protege y personaliza</a></li>
