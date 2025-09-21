@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Halconfilm</title>
-  <link rel="icon" type="Logotipo de Halconfilm.png" href="assets/images/favicon.ico">
+<link rel="icon" href="assets/images/favicon.png" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
   body {
@@ -16,6 +16,10 @@
     animation: fadeIn 1.5s ease-in-out;
   }
   @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+  html {
+    scroll-behavior: smooth;
+  }
 
   header {
     position: fixed;
@@ -42,7 +46,7 @@
   }
 
   .logo img {
-    height: 1.6rem; /* mismo tamaño que el texto original */
+    height: 1.6rem;
     width: auto; 
   }
 
@@ -59,6 +63,47 @@
     .menu-toggle { display: flex; }
   }
 
+  /* Hero inicial */
+  .hero {
+    height: 100vh;
+    background: url("assets/images/hero-bg.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    color: #fff;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.55);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 1rem;
+  }
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1.5s ease;
+  }
+  .hero-content p {
+    font-size: 1.25rem;
+    animation: fadeInUp 2s ease;
+  }
+  @keyframes fadeInDown {
+    from { opacity:0; transform: translateY(-30px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity:0; transform: translateY(30px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+
   section {
     padding: 3rem 2rem;
     margin-top: 100px;
@@ -73,6 +118,11 @@
     margin-bottom: 1rem;
     font-size: 2rem;
     text-transform: capitalize;
+    transition: color 0.3s, transform 0.3s;
+  }
+  h2:hover {
+    transform: scale(1.03);
+    color: #66b3ff;
   }
 
   .principal {
@@ -81,6 +131,11 @@
     margin-bottom: 2rem;
     color: #ffffff;
     text-transform: capitalize;
+    transition: color 0.3s, transform 0.3s;
+  }
+  .principal:hover {
+    transform: scale(1.03);
+    color: #66b3ff;
   }
 
   .box {
@@ -104,7 +159,7 @@
   }
 
   .contact-btn {
-    background: #4a9dff;
+    background: linear-gradient(45deg, #4a9dff, #2a5cc0);
     color: #fff;
     padding: 0.8rem 1.8rem;
     border-radius: 25px;
@@ -115,24 +170,26 @@
     display: inline-block;
     margin-top: 1rem;
   }
-  .contact-btn:hover { background: #2a5cc0; transform: translateY(-2px); }
+  .contact-btn:hover { transform: translateY(-2px) scale(1.05); }
 
-  p { font-size: 1.15rem; }
+  p { font-size: 1.15rem; line-height: 1.8; }
 
   footer {
     text-align: center;
-    padding: 1.5rem;
-    background: #000;
-    color: #888;
+    padding: 2rem 1rem;
+    background: linear-gradient(to right, #050a1a, #0a0f23);
+    color: #aaa;
     font-size: 0.9rem;
     margin-top: 2rem;
   }
+  footer p { margin: 0; }
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo">
-    <img src="Captura_de_pantalla_2025-09-22_002443-removebg-preview.png" alt="Halconfilm Logo">
+    <img src="Captura_de_pantalla_2025-09-22_002443-removebg-preview.png" alt="Logo de Halconfilm con un halcón estilizado">
   </div>
   <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
     <span></span><span></span><span></span>
@@ -147,6 +204,14 @@
     </ul>
   </nav>
 </header>
+
+<!-- Hero inicial -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Protege y Personaliza Tu Vehículo</h1>
+    <p>Más de una década ofreciendo calidad, estilo y confianza para tu coche.</p>
+  </div>
+</section>
 
 <section id="protege">
   <div class="principal">Protege Y Personaliza Tu Vehículo</div>
@@ -185,5 +250,14 @@
 <footer>
   <p>© 2025 Halconfilm. Todos los derechos reservados.</p>
 </footer>
+
+<script>
+  // Cierra el menú móvil al hacer clic en un enlace
+  document.querySelectorAll("nav ul li a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.querySelector("nav ul").classList.remove("active");
+    });
+  });
+</script>
 </body>
 </html>
