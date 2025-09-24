@@ -5,39 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Principal</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hover-scale:hover {
+      transform: scale(1.05);
+      transition: transform 0.4s ease-in-out;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-100 font-sans">
   <!-- Contenedor principal -->
-  <div class="flex flex-col items-center justify-center min-h-screen px-6">
+  <div class="flex flex-col items-center justify-center min-h-screen px-6 relative">
     <!-- Bienvenida -->
-    <h1 class="text-3xl md:text-4xl font-bold mb-4">¡Hola y Bienvenido/a!</h1>
-    <p class="text-lg md:text-xl text-center mb-10 max-w-2xl">
-      Alberto ejerce en dos profesiones distintas. Por favor, selecciona la que más te interese para conocer más.
-    </p>
+    <div class="absolute top-10 text-center">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-white drop-shadow-lg">¡Hola y Bienvenido/a!</h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-300">
+        Alberto ejerce en dos profesiones distintas. Por favor, selecciona la que más te interese para conocer más.
+      </p>
+    </div>
 
-    <!-- Contenedor opciones -->
-    <div class="flex items-center justify-center gap-6">
-      <!-- Botón Izquierda -->
-      <div class="flex items-center gap-3">
-        <img src="https://via.placeholder.com/80" alt="lyn1q_65f08be65c14c.png" class="rounded-lg shadow-md">
-        <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-4 rounded-xl shadow-lg">
-          <div class="text-lg font-bold">DJ Chrome</div>
-          <p class="text-sm font-normal">DJ de eventos, bodas, comuniones, cumpleaños, fiestas privadas, etc.</p>
-        </button>
+    <!-- Contenedor opciones pantalla dividida -->
+    <div class="flex w-full h-screen">
+      <!-- Sección Izquierda -->
+      <div class="w-1/2 relative overflow-hidden hover-scale cursor-pointer">
+        <img src="https://via.placeholder.com/800x900" alt="DJ Chrome" class="w-full h-full object-cover opacity-80">
+        <div class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-40 hover:bg-opacity-60 transition">
+          <h2 class="text-3xl font-bold text-white mb-2 drop-shadow-lg">DJ Chrome</h2>
+          <p class="text-md text-gray-200 max-w-md text-center">DJ de eventos, bodas, comuniones, cumpleaños, fiestas privadas, etc.</p>
+        </div>
       </div>
 
-      <!-- Separador O -->
-      <span class="text-2xl font-bold text-gray-600">O</span>
-
-      <!-- Botón Derecha -->
-      <div class="flex items-center gap-3 flex-row-reverse">
-        <img src="https://via.placeholder.com/80" alt="Captura_de_pantalla_2025-09-22_002443-removebg-preview.png" class="rounded-lg shadow-md">
-        <button class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-4 rounded-xl shadow-lg">
-          <div class="text-lg font-bold">HalconFilm</div>
-          <p class="text-sm font-normal">Personalización y Protección tu vehículo.</p>
-        </button>
+      <!-- Sección Derecha -->
+      <div class="w-1/2 relative overflow-hidden hover-scale cursor-pointer">
+        <img src="https://via.placeholder.com/800x900" alt="HalconFilm" class="w-full h-full object-cover opacity-80">
+        <div class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-40 hover:bg-opacity-60 transition">
+          <h2 class="text-3xl font-bold text-white mb-2 drop-shadow-lg">HalconFilm</h2>
+          <p class="text-md text-gray-200 max-w-md text-center">Personalización y protección de tu vehículo.</p>
+        </div>
       </div>
     </div>
+  </div>
+</body>
+</html>
+
   </div>
 </body>
 </html>
