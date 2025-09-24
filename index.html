@@ -68,8 +68,9 @@
 
   <script>
     function showSection(sectionId) {
-      const sections = document.querySelectorAll('.section, #home');
-      sections.forEach(sec => sec.classList.remove('active'));
+      // Ocultar todas las secciones
+      document.querySelectorAll('.section, #home').forEach(sec => sec.classList.remove('active'));
+      // Mostrar la sección seleccionada
       document.getElementById(sectionId).classList.add('active');
     }
   </script>
