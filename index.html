@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página Principal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Contenedor principal -->
+  <div class="flex flex-col items-center justify-center min-h-screen px-6">
+    <!-- Bienvenida -->
+    <h1 class="text-3xl md:text-4xl font-bold mb-4">¡Hola y Bienvenido/a!</h1>
+    <p class="text-lg md:text-xl text-center mb-10 max-w-2xl">
+      Alberto ejerce en dos profesiones distintas. Por favor, selecciona la que más te interese para conocer más.
+    </p>
+
+    <!-- Contenedor opciones -->
+    <div class="flex items-center justify-center gap-6">
+      <!-- Botón Izquierda -->
+      <div class="flex items-center gap-3">
+        <img src="https://via.placeholder.com/80" alt="Imagen Profesión 1" class="rounded-lg shadow-md">
+        <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-4 rounded-xl shadow-lg">
+          <div class="text-lg font-bold">Título Profesión 1</div>
+          <p class="text-sm font-normal">Breve descripción de la primera profesión.</p>
+        </button>
+      </div>
+
+      <!-- Separador O -->
+      <span class="text-2xl font-bold text-gray-600">O</span>
+
+      <!-- Botón Derecha -->
+      <div class="flex items-center gap-3 flex-row-reverse">
+        <img src="https://via.placeholder.com/80" alt="Imagen Profesión 2" class="rounded-lg shadow-md">
+        <button class="bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-4 rounded-xl shadow-lg">
+          <div class="text-lg font-bold">Título Profesión 2</div>
+          <p class="text-sm font-normal">Breve descripción de la segunda profesión.</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
