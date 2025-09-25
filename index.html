@@ -186,6 +186,59 @@
     margin-top: 2rem;
   }
   footer p { margin: 0; }
+
+  /* --- ANUNCIO DJ --- */
+  .dj-anuncio {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    border-left: 4px solid #25d366;
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    max-width: 260px;
+    font-size: 0.95rem;
+    z-index: 900;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  .dj-anuncio h3 {
+    margin: 0 0 0.8rem;
+    color: #25d366;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .dj-anuncio p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    color: #eee;
+    text-align: center;
+  }
+  .dj-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25d366;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
+  .dj-btn img {
+    height: 20px;
+    width: 20px;
+    margin-left: 8px;
+  }
+  .dj-btn:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 1024px) {
+    .dj-anuncio { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -253,6 +306,16 @@
 <footer>
   <p>© 2025 Halconfilm. Todos los derechos reservados.</p>
 </footer>
+
+<!-- Anuncio DJ (solo en escritorio) -->
+<div class="dj-anuncio">
+  <h3>🎵 Servicios de DJ</h3>
+  <p>Eventos, bodas, cumpleaños, comuniones, fiestas privadas y más. <br><strong>En Tarragona</strong>.</p>
+  <a class="dj-btn" href="https://wa.me/34635871312" target="_blank">
+    Más información
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+  </a>
+</div>
 
 <script>
   // Cierra el menú móvil al hacer clic en un enlace
