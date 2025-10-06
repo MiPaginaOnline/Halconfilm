@@ -4,429 +4,1107 @@
   <meta name="google-site-verification" content="zcqWNXO5PxwuhC8eUUWnLJH8WTvc4ASWszyT6URT9AM" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halconfilm</title>
-  <meta name="description" content="Halconfilm: Taller especializado en protección y personalización automotriz. Más de 10 años de experiencia en tintado, vinilos y cuidado de vehículos.">
-  <meta name="keywords" content="taller automotriz, tintado de lunas, protección vehicular, vinilos coche, personalización automóvil">
+  <title>Halconfilm - Protección y Personalización Automotriz</title>
+  <meta name="description" content="Taller especializado en protección y personalización de vehículos. Tintado de lunas, vinilos, protección de cristales y más. Más de 10 años de experiencia.">
   <link rel="icon" href="Logotipo de Halconfilm.png" type="image/png">
   <link rel="icon" href="Logotipo de Halconfilm.png" sizes="32x32" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  body {
+  :root {
+    --primary: #4a9dff;
+    --primary-dark: #2a5cc0;
+    --dark: #050a1a;
+    --dark-light: #0a0f23;
+    --light: #f5f5f5;
+    --gray: #aaa;
+    --success: #25d366;
+  }
+  
+  * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
     font-family: 'Poppins', sans-serif;
-    background: #050a1a;
-    color: #f5f5f5;
+    background: var(--dark);
+    color: var(--light);
     line-height: 1.6;
-    animation: fadeIn 1.5s ease-in-out;
-  }
-  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
-
-  html {
-    scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header */
   header {
     position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 1000;
+    background: rgba(10, 15, 35, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 1rem 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(74, 157, 255, 0.1);
+  }
+
+  .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(10, 15, 35, 0.85);
-    backdrop-filter: blur(15px);
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    width: 90%;
-    max-width: 1000px;
-    border: 1px solid rgba(74, 157, 255, 0.2);
   }
 
   .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
   }
 
   .logo img {
-    height: 1.6rem;
-    width: auto; 
+    height: 40px;
+    width: auto;
   }
 
-  nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
-  nav ul li a { color: #f5f5f5; text-decoration: none; font-weight: 500; transition: color 0.3s; padding: 0.5rem 0; }
-  nav ul li a:hover { color: #4a9dff; }
-
-  .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
-  .menu-toggle span { width: 25px; height: 3px; background: #fff; margin: 4px 0; border-radius: 2px; transition: 0.3s; }
-
-  @media (max-width: 768px) {
-    header { padding: 0.8rem 1.5rem; }
-    nav ul { display: none; flex-direction: column; position: absolute; top: 70px; right: 20px; background: rgba(10,15,35,0.95); padding:1rem; border-radius:12px; width:220px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
-    nav ul.active { display: flex; }
-    .menu-toggle { display: flex; }
-    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+  .logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 10px;
+    color: var(--light);
   }
 
-  /* Hero inicial */
+  .logo-text span {
+    color: var(--primary);
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav ul li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+    padding: 0.5rem 0;
+  }
+
+  nav ul li a:hover {
+    color: var(--primary);
+  }
+
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s;
+  }
+
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--light);
+    margin: 3px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* Hero Section */
   .hero {
-    height: 70vh;
-    background: url("IMG_7036.jpg") center/cover no-repeat;
+    height: 100vh;
+    background: linear-gradient(rgba(5, 10, 26, 0.8), rgba(5, 10, 26, 0.9)), url('IMG_7036.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
-    color: #fff;
+    color: var(--light);
+    padding-top: 80px;
   }
-  .hero::before {
-    content: "";
-    position: absolute;
-    top:0; left:0; right:0; bottom:0;
-    background: rgba(0,0,0,0.55);
-  }
+
   .hero-content {
-    position: relative;
-    z-index: 1;
     max-width: 800px;
-    padding: 1rem;
-  }
-  .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    animation: fadeInDown 1.5s ease;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  }
-  .hero-content p {
-    font-size: 1.25rem;
-    animation: fadeInUp 2s ease;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  }
-  @keyframes fadeInDown {
-    from { opacity:0; transform: translateY(-30px); }
-    to { opacity:1; transform: translateY(0); }
-  }
-  @keyframes fadeInUp {
-    from { opacity:0; transform: translateY(30px); }
-    to { opacity:1; transform: translateY(0); }
+    padding: 0 20px;
   }
 
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--light);
+    padding: 0.9rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(74, 157, 255, 0.3);
+  }
+
+  .btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 157, 255, 0.4);
+  }
+
+  .btn-large {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* Sections */
   section {
-    padding: 3rem 2rem;
-    margin-top: 100px;
-    max-width: 850px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    padding: 5rem 0;
   }
 
-  h2 {
-    color: #4a9dff;
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title h2 {
+    font-size: 2.5rem;
+    color: var(--light);
     margin-bottom: 1rem;
-    font-size: 2rem;
-    text-transform: capitalize;
-    transition: color 0.3s;
     position: relative;
     display: inline-block;
   }
-  h2::after {
+
+  .section-title h2::after {
     content: '';
     position: absolute;
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 80px;
     height: 3px;
-    background: #4a9dff;
-    transition: width 0.3s;
-  }
-  h2:hover::after {
-    width: 100px;
+    background: var(--primary);
   }
 
-  .principal {
+  .section-title p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* About Section */
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .about-text {
+    padding-right: 1rem;
+  }
+
+  .about-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+  }
+
+  .about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .feature i {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-top: 5px;
+  }
+
+  .feature h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--light);
+  }
+
+  .about-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    height: 400px;
+    background: var(--dark-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-image-placeholder {
+    color: var(--gray);
+    font-size: 1.2rem;
+  }
+
+  /* Services Section */
+  .services {
+    background: var(--dark-light);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: all 0.3s;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  }
+
+  .service-icon {
     font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+  }
+
+  .service-card p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+  }
+
+  .service-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s;
+  }
+
+  .service-link:hover {
+    gap: 1rem;
+  }
+
+  /* Experience Section */
+  .experience-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .experience-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .stat {
+    padding: 2rem;
+    background: rgba(0,0,0,0.4);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .stat-number {
+    font-size: 3rem;
     font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-text {
+    font-size: 1.1rem;
+    color: var(--light);
+  }
+
+  /* Contact Section */
+  .contact {
+    background: var(--dark-light);
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+  }
+
+  .contact-info p {
     margin-bottom: 2rem;
-    color: #ffffff;
-    text-transform: capitalize;
+    font-size: 1.1rem;
+  }
+
+  .contact-details {
+    margin-top: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(74, 157, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.2rem;
+  }
+
+  .contact-text h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: var(--light);
+  }
+
+  .contact-text p {
+    margin: 0;
+    color: var(--gray);
+  }
+
+  .contact-form {
+    background: rgba(0,0,0,0.4);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--light);
+    font-weight: 500;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 5px;
+    background: rgba(255,255,255,0.05);
+    color: var(--light);
+    font-family: 'Poppins', sans-serif;
+    transition: border 0.3s;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+
+  textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--dark);
+    padding: 3rem 0 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-column h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary);
+  }
+
+  .footer-links {
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-links a {
+    color: var(--gray);
+    text-decoration: none;
     transition: color 0.3s;
   }
 
-  .box {
-    background: rgba(0,0,0,0.75);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: left;
-    border-left: 4px solid #4a9dff;
-  }
-  .box:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
-
-  .servicios-box {
-    background: rgba(0,0,0,0.65);
-    padding: 2rem;
-    border-radius: 14px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    margin-bottom: 2rem;
+  .footer-links a:hover {
+    color: var(--primary);
   }
 
-  .contact-btn {
-    background: linear-gradient(45deg, #4a9dff, #2a5cc0);
-    color: #fff;
-    padding: 0.8rem 1.8rem;
-    border-radius: 25px;
-    border: none;
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
     text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s, transform 0.3s;
-    display: inline-block;
-    margin-top: 1rem;
-    box-shadow: 0 4px 15px rgba(74, 157, 255, 0.3);
+    transition: all 0.3s;
   }
-  .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74, 157, 255, 0.4); }
 
-  p { font-size: 1.15rem; line-height: 1.8; }
+  .social-link:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+  }
 
-  footer {
+  .copyright {
     text-align: center;
-    padding: 2rem 1rem;
-    background: linear-gradient(to right, #050a1a, #0a0f23);
-    color: #aaa;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--gray);
     font-size: 0.9rem;
-    margin-top: 2rem;
-    border-top: 1px solid rgba(74, 157, 255, 0.1);
   }
-  footer p { margin: 0; }
 
-  /* --- ANUNCIO DJ --- */
-  .dj-anuncio {
+  /* DJ Banner */
+  .dj-banner {
     position: fixed;
-    top: 150px;
+    bottom: 20px;
     right: 20px;
-    background: rgba(0, 0, 0, 0.85);
-    border-left: 4px solid #25d366;
+    background: rgba(0,0,0,0.9);
+    border-left: 4px solid var(--success);
     padding: 1.5rem;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-    max-width: 260px;
-    font-size: 0.95rem;
-    z-index: 900;
-    animation: fadeIn 1.5s ease-in-out;
-    border: 1px solid rgba(37, 211, 102, 0.2);
+    border-radius: 10px;
+    max-width: 280px;
+    z-index: 999;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: fadeIn 1s ease;
   }
-  .dj-anuncio h3 {
-    margin: 0 0 0.8rem;
-    color: #25d366;
+
+  .dj-banner h4 {
+    color: var(--success);
+    margin-bottom: 0.8rem;
     font-size: 1.2rem;
-    text-align: center;
   }
-  .dj-anuncio p {
-    font-size: 0.95rem;
-    line-height: 1.5;
+
+  .dj-banner p {
     margin-bottom: 1rem;
-    color: #eee;
-    text-align: center;
+    font-size: 0.9rem;
+    color: var(--gray);
   }
+
   .dj-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #25d366;
-    color: #fff;
-    padding: 0.6rem 1rem;
-    border-radius: 25px;
-    font-weight: bold;
+    gap: 0.5rem;
+    background: var(--success);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
     text-decoration: none;
-    transition: transform 0.3s;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    font-weight: 500;
+    transition: all 0.3s;
   }
-  .dj-btn img {
-    height: 20px;
-    width: 20px;
-    margin-left: 8px;
-  }
+
   .dj-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
   }
 
-  @media (max-width: 1024px) {
-    .dj-anuncio { display: none; }
+  /* Responsive */
+  @media (max-width: 992px) {
+    .about-content,
+    .contact-content {
+      grid-template-columns: 1fr;
+    }
+    
+    .about-image {
+      order: -1;
+    }
+    
+    .hero h1 {
+      font-size: 2.8rem;
+    }
   }
 
-  /* Mejoras adicionales */
-  .testimonios {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-    margin-top: 2rem;
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+    
+    nav ul {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background: var(--dark-light);
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 0;
+      gap: 0;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    nav ul.active {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    nav ul li {
+      width: 100%;
+      text-align: center;
+    }
+    
+    nav ul li a {
+      display: block;
+      padding: 1rem 0;
+    }
+    
+    .hero h1 {
+      font-size: 2.3rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2rem;
+    }
+    
+    .about-features {
+      grid-template-columns: 1fr;
+    }
+    
+    .dj-banner {
+      display: none;
+    }
   }
-  
-  .testimonio {
-    background: rgba(0,0,0,0.7);
-    padding: 1.5rem;
-    border-radius: 12px;
-    flex: 1;
-    min-width: 250px;
-    max-width: 350px;
-    text-align: left;
-    border-top: 3px solid #4a9dff;
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+    
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .experience-stats {
+      grid-template-columns: 1fr;
+    }
   }
-  
-  .testimonio p {
-    font-style: italic;
-    margin-bottom: 1rem;
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
-  
-  .cliente {
-    font-weight: bold;
-    color: #4a9dff;
-    text-align: right;
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s;
   }
-  
-  .loading {
-    opacity: 0.7;
-    pointer-events: none;
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <img src="Captura_de_pantalla_2025-09-22_002443-removebg-preview.png" alt="Logo de Halconfilm - Especialistas en protección y personalización automotriz">
-  </div>
-  <div class="menu-toggle" onclick="toggleMenu(this)">
-    <span></span><span></span><span></span>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="#protege">Protege Y Personaliza</a></li>
-      <li><a href="#decada">Experiencia</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#testimonios">Clientes</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-      <li><a href="galeria.html">Galería</a></li>
-    </ul>
-  </nav>
-</header>
-
-<!-- Hero inicial -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Protege y Personaliza Tu Vehículo</h1>
-    <p>Más de una década ofreciendo calidad, estilo y confianza para tu coche.</p>
-  </div>
-</section>
-
-<section id="protege">
-  <div class="principal">Personalización y Protección a Tu Medida</div>
-  <div class="box">
-    <p>En Halconfilm cuidamos cada detalle de tu coche. Nos especializamos en mejorar su <strong>estética</strong>, protegerlo con las mejores técnicas y materiales, y darle un toque único que refleje tu estilo.</p>
-  </div>
-</section>
-
-<section id="decada">
-  <h2>Más De Una Década De Experiencia</h2>
-  <div class="box">
-    <p>Desde 2008, hemos sido referentes en personalización y protección automotriz. Nuestra <strong>trayectoria</strong> garantiza la calidad de nuestro trabajo y la confianza de nuestros clientes.</p>
-  </div>
-</section>
-
-<section id="servicios">
-  <h2>Nuestros Servicios</h2>
-  <div class="servicios-box">
-    <div class="box"><p><strong>Tintado Profesional De Lunas</strong> – Protege tu interior de los rayos UV, mejora la privacidad y aporta un acabado elegante.</p></div>
-    <div class="box"><p><strong>Personalización Textil Exclusiva</strong> – Diseñamos ropa y accesorios únicos que reflejan tu estilo y pasión por el motor.</p></div>
-    <div class="box"><p><strong>Protección Avanzada De Cristales</strong> – Evita roturas y daños con películas de alta resistencia que garantizan seguridad y durabilidad.</p></div>
-    <div class="box"><p><strong>Pulido Y Restauración De Ópticas</strong> – Recupera la claridad y luminosidad de tus faros para conducir con mayor seguridad y estilo.</p></div>
-    <div class="box"><p><strong>Rotulación Y Vinilos De Alta Calidad</strong> – Personaliza tu coche con vinilos resistentes y diseños que marcan la diferencia.</p></div>
-    <div class="box"><p><strong>Cuidado Estético Completo</strong> – Tratamientos integrales que devuelven el brillo y protegen cada parte de tu vehículo.</p></div>
-  </div>
-</section>
-
-<section id="testimonios">
-  <h2>Opiniones de Nuestros Clientes</h2>
-  <div class="testimonios">
-    <div class="testimonio">
-      <p>"Excelente trabajo en el tintado de mi coche. Muy profesionales y el resultado impecable."</p>
-      <div class="cliente">- Javier M.</div>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="Captura_de_pantalla_2025-09-22_002443-removebg-preview.png" alt="Halconfilm - Especialistas en protección automotriz">
+          <div class="logo-text">Halcon<span>film</span></div>
+        </div>
+        
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        
+        <nav>
+          <ul id="navMenu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
-    <div class="testimonio">
-      <p>"Llevo años confiando en Halconfilm para el cuidado de mis vehículos. Siempre perfecto."</p>
-      <div class="cliente">- Ana R.</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-content">
+        <div>
+          <h1>Protección y Personalización Automotriz</h1>
+          <p>Más de una década ofreciendo calidad, estilo y confianza para tu vehículo</p>
+          <a href="#contacto" class="btn btn-large">Solicitar Presupuesto</a>
+        </div>
+      </div>
     </div>
-    <div class="testimonio">
-      <p>"Los vinilos que me instalaron han resistido perfectamente varios años. Muy recomendable."</p>
-      <div class="cliente">- Carlos L.</div>
+  </section>
+
+  <!-- About Section -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="section-title">
+        <h2>Personalización y Protección a Tu Medida</h2>
+        <p>En Halconfilm cuidamos cada detalle de tu coche con los mejores materiales y técnicas</p>
+      </div>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Expertos en Protección y Estética Automotriz</h3>
+          <p>Nos especializamos en mejorar la estética de tu vehículo, protegerlo con las mejores técnicas y materiales, y darle un toque único que refleje tu estilo.</p>
+          <p>Nuestro equipo de profesionales cuenta con la experiencia y conocimientos necesarios para ofrecerte soluciones personalizadas y de alta calidad.</p>
+          
+          <div class="about-features">
+            <div class="feature">
+              <i class="fas fa-shield-alt"></i>
+              <div>
+                <h4>Protección Duradera</h4>
+                <p>Materiales de primera calidad que protegen tu vehículo</p>
+              </div>
+            </div>
+            <div class="feature">
+              <i class="fas fa-palette"></i>
+              <div>
+                <h4>Personalización Única</h4>
+                <p>Diseños exclusivos que reflejan tu personalidad</p>
+              </div>
+            </div>
+            <div class="feature">
+              <i class="fas fa-award"></i>
+              <div>
+                <h4>Calidad Garantizada</h4>
+                <p>Trabajos con garantía y acabados profesionales</p>
+              </div>
+            </div>
+            <div class="feature">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h4>Entrega Puntual</h4>
+                <p>Cumplimos con los plazos establecidos</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-image">
+          <div class="about-image-placeholder">
+            <i class="fas fa-car" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <p>Imagen de nuestros trabajos</p>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="servicios">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestros Servicios</h2>
+        <p>Ofrecemos una amplia gama de servicios para el cuidado y personalización de tu vehículo</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-sun"></i>
+          </div>
+          <h3>Tintado Profesional de Lunas</h3>
+          <p>Protege tu interior de los rayos UV, mejora la privacidad y aporta un acabado elegante a tu vehículo.</p>
+          <a href="#contacto" class="service-link">
+            Más información <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-film"></i>
+          </div>
+          <h3>Protección Avanzada de Cristales</h3>
+          <p>Evita roturas y daños con películas de alta resistencia que garantizan seguridad y durabilidad.</p>
+          <a href="#contacto" class="service-link">
+            Más información <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-paint-roller"></i>
+          </div>
+          <h3>Rotulación y Vinilos</h3>
+          <p>Personaliza tu coche con vinilos resistentes y diseños exclusivos que marcan la diferencia.</p>
+          <a href="#contacto" class="service-link">
+            Más información <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Pulido de Ópticas</h3>
+          <p>Recupera la claridad y luminosidad de tus faros para conducir con mayor seguridad y estilo.</p>
+          <a href="#contacto" class="service-link">
+            Más información <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-spray-can"></i>
+          </div>
+          <h3>Tratamientos Estéticos</h3>
+          <p>Tratamientos integrales que devuelven el brillo y protegen cada parte de tu vehículo.</p>
+          <a href="#contacto" class="service-link">
+            Más información <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-tshirt"></i>
+          </div>
+          <h3>Personalización Textil</h3>
+          <p>Diseñamos ropa y accesorios únicos que reflejan tu estilo y pasión por el motor.</p>
+          <a href="#contacto" class="service-link">
+            Más información <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experiencia">
+    <div class="container">
+      <div class="section-title">
+        <h2>Más de una Década de Experiencia</h2>
+        <p>Desde 2008, hemos sido referentes en personalización y protección automotriz</p>
+      </div>
+      
+      <div class="experience-content">
+        <p>Nuestra trayectoria garantiza la calidad de nuestro trabajo y la confianza de nuestros clientes. A lo largo de estos años, hemos perfeccionado nuestras técnicas y ampliado nuestros servicios para ofrecer las mejores soluciones para tu vehículo.</p>
+        
+        <div class="experience-stats">
+          <div class="stat">
+            <div class="stat-number">15+</div>
+            <div class="stat-text">Años de Experiencia</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">1000+</div>
+            <div class="stat-text">Vehículos Atendidos</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">98%</div>
+            <div class="stat-text">Clientes Satisfechos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contacto</h2>
+        <p>¿Quieres transformar tu vehículo? Contáctanos para una atención personalizada</p>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <h3>Ponte en contacto con nosotros</h3>
+          <p>Estamos aquí para ayudarte a personalizar y proteger tu vehículo. Solicita presupuesto sin compromiso.</p>
+          
+          <a href="https://wa.me/34635871312" class="btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Teléfono</h4>
+                <p>+34 635 871 312</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email</h4>
+                <p>info@halconfilm.com</p>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Ubicación</h4>
+                <p>Tarragona, España</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input type="tel" id="phone" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="service">Servicio de interés</label>
+              <select id="service" class="form-control">
+                <option value="">Selecciona un servicio</option>
+                <option value="tintado">Tintado de lunas</option>
+                <option value="proteccion">Protección de cristales</option>
+                <option value="vinilos">Vinilos y rotulación</option>
+                <option value="pulido">Pulido de ópticas</option>
+                <option value="estetica">Tratamientos estéticos</option>
+                <option value="textil">Personalización textil</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Halconfilm</h3>
+          <p>Especialistas en protección y personalización automotriz con más de 15 años de experiencia.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Servicios</h3>
+          <ul class="footer-links">
+            <li><a href="#servicios">Tintado de Lunas</a></li>
+            <li><a href="#servicios">Protección de Cristales</a></li>
+            <li><a href="#servicios">Vinilos y Rotulación</a></li>
+            <li><a href="#servicios">Pulido de Ópticas</a></li>
+            <li><a href="#servicios">Tratamientos Estéticos</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Enlaces</h3>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Halconfilm. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DJ Banner -->
+  <div class="dj-banner">
+    <h4><i class="fas fa-music"></i> Servicios de DJ</h4>
+    <p>Eventos, bodas, cumpleaños y fiestas privadas en Tarragona</p>
+    <a href="https://wa.me/34635871312" class="dj-btn" target="_blank">
+      Más información <i class="fab fa-whatsapp"></i>
+    </a>
   </div>
-</section>
 
-<section id="contacto">
-  <h2>Contacto</h2>
-  <div class="box">
-    <p>¿Quieres transformar tu vehículo y darle un aspecto único? Confía en nuestros especialistas y déjanos asesorarte con la mejor atención personalizada.</p>
-    <a class="contact-btn" href="https://wa.me/34635871312" target="_blank" aria-label="Contactar por WhatsApp">¡Contáctame en WhatsApp!</a>
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 Halconfilm. Todos los derechos reservados.</p>
-</footer>
-
-<!-- Anuncio DJ (solo en escritorio) -->
-<div class="dj-anuncio">
-  <h3>Servicios de DJ</h3>
-  <p>Eventos, bodas, cumpleaños, comuniones, fiestas privadas y más. En Tarragona.</p>
-  <a class="dj-btn" href="https://wa.me/34635871312" target="_blank" aria-label="Información sobre servicios de DJ">
-    Más información
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono de WhatsApp">
-  </a>
-</div>
-
-<script>
-  // Cierra el menú móvil al hacer clic en un enlace
-  document.querySelectorAll("nav ul li a").forEach(link => {
-    link.addEventListener("click", () => {
-      document.querySelector("nav ul").classList.remove("active");
-      document.querySelector(".menu-toggle").classList.remove("active");
+  <script>
+    // Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      menuToggle.classList.toggle('active');
     });
-  });
-  
-  // Animación del menú hamburguesa
-  function toggleMenu(x) {
-    x.classList.toggle("active");
-    document.querySelector("nav ul").classList.toggle("active");
-  }
-  
-  // Efecto de carga para botones
-  document.querySelectorAll('.contact-btn, .dj-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      this.classList.add('loading');
-      setTimeout(() => {
-        this.classList.remove('loading');
-      }, 1000);
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('#navMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        menuToggle.classList.remove('active');
+      });
     });
-  });
-  
-  // Detectar scroll para efecto en header
-  window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-      header.style.background = 'rgba(10, 15, 35, 0.95)';
-    } else {
-      header.style.background = 'rgba(10, 15, 35, 0.85)';
-    }
-  });
-</script>
+    
+    // Scroll animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(el => {
+      observer.observe(el);
+    });
+    
+    // Form submission
+    const contactForm = document.getElementById('contactForm');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Here you would typically send the form data to a server
+      alert('Gracias por tu mensaje. Te contactaremos pronto.');
+      contactForm.reset();
+    });
+    
+    // Add fade-in class to sections
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('fade-in');
+    });
+  </script>
 </body>
 </html>
