@@ -4,11 +4,10 @@
   <meta name="google-site-verification" content="zcqWNXO5PxwuhC8eUUWnLJH8WTvc4ASWszyT6URT9AM" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Halconfilm - Protección y Personalización Automotriz</title>
-  <meta name="description" content="Taller especializado en protección y personalización de vehículos. Tintado de lunas, vinilos, protección de cristales y más. Más de 10 años de experiencia.">
+  <title>Halconfilm</title>
+  <meta name="description" content="Halconfilm: Taller especializado en protección y personalización automotriz. Tintado, vinilos y cuidado de vehículos.">
   <link rel="icon" href="Logotipo de Halconfilm.png" type="image/png">
-  <link rel="icon" href="Logotipo de Halconfilm.png" sizes="32x32" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
@@ -72,17 +71,6 @@
     width: auto;
   }
 
-  .logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-left: 10px;
-    color: var(--light);
-  }
-
-  .logo-text span {
-    color: var(--primary);
-  }
-
   nav ul {
     list-style: none;
     display: flex;
@@ -135,7 +123,7 @@
   /* Hero Section */
   .hero {
     height: 100vh;
-    background: linear-gradient(rgba(5, 10, 26, 0.8), rgba(5, 10, 26, 0.9)), url('IMG_7036.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.8)), #0a0f23;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -281,11 +269,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid rgba(255,255,255,0.1);
   }
 
   .about-image-placeholder {
     color: var(--gray);
     font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .about-image-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    color: var(--primary);
   }
 
   /* Services Section */
@@ -306,6 +303,7 @@
     transition: all 0.3s;
     border-left: 4px solid var(--primary);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: 100%;
   }
 
   .service-card:hover {
@@ -363,6 +361,7 @@
     background: rgba(0,0,0,0.4);
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-top: 3px solid var(--primary);
   }
 
   .stat-number {
@@ -438,6 +437,7 @@
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
   }
 
   .form-group {
@@ -567,6 +567,7 @@
     z-index: 999;
     box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     animation: fadeIn 1s ease;
+    border: 1px solid rgba(255,255,255,0.1);
   }
 
   .dj-banner h4 {
@@ -636,6 +637,7 @@
       visibility: hidden;
       transition: all 0.3s;
       box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
     
     nav ul.active {
@@ -672,6 +674,18 @@
     
     .dj-banner {
       display: none;
+    }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
     }
   }
 
@@ -714,7 +728,6 @@
       <div class="header-content">
         <div class="logo">
           <img src="Captura_de_pantalla_2025-09-22_002443-removebg-preview.png" alt="Halconfilm - Especialistas en protección automotriz">
-          <div class="logo-text">Halcon<span>film</span></div>
         </div>
         
         <div class="menu-toggle" id="menuToggle">
@@ -797,7 +810,7 @@
         
         <div class="about-image">
           <div class="about-image-placeholder">
-            <i class="fas fa-car" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <i class="fas fa-car"></i>
             <p>Imagen de nuestros trabajos</p>
           </div>
         </div>
@@ -926,7 +939,7 @@
           <p>Estamos aquí para ayudarte a personalizar y proteger tu vehículo. Solicita presupuesto sin compromiso.</p>
           
           <a href="https://wa.me/34635871312" class="btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> WhatsApp
+            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
           </a>
           
           <div class="contact-details">
@@ -1104,6 +1117,16 @@
     // Add fade-in class to sections
     document.querySelectorAll('section').forEach(section => {
       section.classList.add('fade-in');
+    });
+    
+    // Header background on scroll
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(10, 15, 35, 0.98)';
+      } else {
+        header.style.background = 'rgba(10, 15, 35, 0.95)';
+      }
     });
   </script>
 </body>
