@@ -123,7 +123,7 @@
   /* Hero Section */
   .hero {
     height: 100vh;
-    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.8)), #0a0f23;
+    background: linear-gradient(rgba(5, 10, 26, 0.7), rgba(5, 10, 26, 0.8)), url('IMG_7036.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,6 +151,31 @@
     opacity: 0.9;
   }
 
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-indicator i {
+    font-size: 2rem;
+    color: var(--primary);
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    40% {
+      transform: translateY(-20px) translateX(-50%);
+    }
+    60% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+  }
+
   .btn {
     display: inline-block;
     background: var(--primary);
@@ -169,11 +194,6 @@
     background: var(--primary-dark);
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(42, 107, 197, 0.4);
-  }
-
-  .btn-large {
-    padding: 1.1rem 2.5rem;
-    font-size: 1.1rem;
   }
 
   /* Sections */
@@ -276,6 +296,14 @@
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .about-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
   }
 
   .about-image-placeholder {
@@ -289,6 +317,25 @@
     margin-bottom: 1rem;
     display: block;
     color: var(--primary);
+  }
+
+  .gallery-link {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+
+  .gallery-link:hover {
+    background: var(--primary-dark);
+    transform: translateX(-50%) translateY(-2px);
   }
 
   /* Services Section */
@@ -394,9 +441,14 @@
   }
 
   .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: center;
     gap: 3rem;
+  }
+
+  .contact-info {
+    text-align: center;
+    max-width: 500px;
   }
 
   .contact-info h3 {
@@ -418,6 +470,7 @@
   .contact-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
   }
@@ -443,46 +496,6 @@
   .contact-text p {
     margin: 0;
     color: var(--gray);
-  }
-
-  .contact-form {
-    background: rgba(0,0,0,0.4);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--light);
-    font-weight: 500;
-  }
-
-  .form-control {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 5px;
-    background: rgba(255,255,255,0.05);
-    color: var(--light);
-    font-family: 'Poppins', sans-serif;
-    transition: border 0.3s;
-  }
-
-  .form-control:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-
-  textarea.form-control {
-    min-height: 150px;
-    resize: vertical;
   }
 
   /* Footer */
@@ -539,6 +552,7 @@
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
+    justify-content: center;
   }
 
   .social-link {
@@ -616,8 +630,7 @@
 
   /* Responsive */
   @media (max-width: 992px) {
-    .about-content,
-    .contact-content {
+    .about-content {
       grid-template-columns: 1fr;
     }
     
@@ -745,6 +758,7 @@
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#experiencia">Experiencia</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li><a href="galeria.html">Galería</a></li>
           </ul>
         </nav>
       </div>
@@ -756,10 +770,12 @@
     <div class="container">
       <div class="hero-content">
         <div>
-          <h1>Protección y Personalización Automotriz</h1>
+          <h1>Personalización y Protección a Tu Medida</h1>
           <p>Más de una década ofreciendo calidad, estilo y confianza para tu vehículo</p>
-          <a href="#contacto" class="btn btn-large">Solicitar Presupuesto</a>
         </div>
+      </div>
+      <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
       </div>
     </div>
   </section>
@@ -768,7 +784,6 @@
   <section id="nosotros">
     <div class="container">
       <div class="section-title">
-        <h2>Personalización y Protección a Tu Medida</h2>
         <p>En Halconfilm cuidamos cada detalle de tu coche con los mejores materiales y técnicas</p>
       </div>
       
@@ -793,28 +808,15 @@
                 <p>Diseños exclusivos que reflejan tu personalidad</p>
               </div>
             </div>
-            <div class="feature">
-              <i class="fas fa-award"></i>
-              <div>
-                <h4>Calidad Garantizada</h4>
-                <p>Trabajos con garantía y acabados profesionales</p>
-              </div>
-            </div>
-            <div class="feature">
-              <i class="fas fa-clock"></i>
-              <div>
-                <h4>Entrega Puntual</h4>
-                <p>Cumplimos con los plazos establecidos</p>
-              </div>
-            </div>
           </div>
         </div>
         
         <div class="about-image">
           <div class="about-image-placeholder">
-            <i class="fas fa-car"></i>
-            <p>Imagen de nuestros trabajos</p>
+            <i class="fas fa-images"></i>
+            <p>Galería de nuestros trabajos</p>
           </div>
+          <a href="galeria.html" class="gallery-link">Ver Galería</a>
         </div>
       </div>
     </div>
@@ -914,14 +916,6 @@
             <div class="stat-number">15+</div>
             <div class="stat-text">Años de Experiencia</div>
           </div>
-          <div class="stat">
-            <div class="stat-number">1000+</div>
-            <div class="stat-text">Vehículos Atendidos</div>
-          </div>
-          <div class="stat">
-            <div class="stat-number">98%</div>
-            <div class="stat-text">Clientes Satisfechos</div>
-          </div>
         </div>
       </div>
     </div>
@@ -938,9 +932,9 @@
       <div class="contact-content">
         <div class="contact-info">
           <h3>Ponte en contacto con nosotros</h3>
-          <p>Estamos aquí para ayudarte a personalizar y proteger tu vehículo. Solicita presupuesto sin compromiso.</p>
+          <p>Estamos aquí para ayudarte a personalizar y proteger tu vehículo. Contáctanos directamente por WhatsApp.</p>
           
-          <a href="https://wa.me/34635871312" class="btn" target="_blank">
+          <a href="https://wa.me/34635871312" class="btn" target="_blank" style="font-size: 1.2rem; padding: 1rem 2.5rem;">
             <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
           </a>
           
@@ -957,16 +951,6 @@
             
             <div class="contact-item">
               <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contact-text">
-                <h4>Email</h4>
-                <p>info@halconfilm.com</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon">
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div class="contact-text">
@@ -975,46 +959,6 @@
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="phone">Teléfono</label>
-              <input type="tel" id="phone" class="form-control">
-            </div>
-            
-            <div class="form-group">
-              <label for="service">Servicio de interés</label>
-              <select id="service" class="form-control">
-                <option value="">Selecciona un servicio</option>
-                <option value="tintado">Tintado de lunas</option>
-                <option value="proteccion">Protección de cristales</option>
-                <option value="vinilos">Vinilos y rotulación</option>
-                <option value="pulido">Pulido de ópticas</option>
-                <option value="estetica">Tratamientos estéticos</option>
-                <option value="textil">Personalización textil</option>
-                <option value="otro">Otro</option>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Mensaje</label>
-              <textarea id="message" class="form-control" required></textarea>
-            </div>
-            
-            <button type="submit" class="btn">Enviar Mensaje</button>
-          </form>
         </div>
       </div>
     </div>
@@ -1030,7 +974,7 @@
           <div class="social-links">
             <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/34635871312" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
         
@@ -1053,6 +997,7 @@
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#experiencia">Experiencia</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li><a href="galeria.html">Galería</a></li>
           </ul>
         </div>
       </div>
@@ -1088,17 +1033,6 @@
         navMenu.classList.remove('active');
         menuToggle.classList.remove('active');
       });
-    });
-    
-    // Form submission
-    const contactForm = document.getElementById('contactForm');
-    
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      // Here you would typically send the form data to a server
-      alert('Gracias por tu mensaje. Te contactaremos pronto.');
-      contactForm.reset();
     });
     
     // Header background on scroll
