@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
-    --primary: #4a9dff;
-    --primary-dark: #2a5cc0;
-    --dark: #050a1a;
-    --dark-light: #0a0f23;
-    --light: #f5f5f5;
-    --gray: #aaa;
+    --primary: #2a6bc5;
+    --primary-dark: #1a4a8f;
+    --dark: #0a0f23;
+    --dark-light: #1a2238;
+    --light: #ffffff;
+    --gray: #b0b0b0;
     --success: #25d366;
   }
   
@@ -162,13 +162,13 @@
     transition: all 0.3s;
     border: none;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(74, 157, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(42, 107, 197, 0.3);
   }
 
   .btn:hover {
     background: var(--primary-dark);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(74, 157, 255, 0.4);
+    box-shadow: 0 8px 20px rgba(42, 107, 197, 0.4);
   }
 
   .btn-large {
@@ -233,6 +233,7 @@
   .about-text p {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
+    color: var(--gray);
   }
 
   .about-features {
@@ -258,6 +259,11 @@
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     color: var(--light);
+  }
+
+  .feature p {
+    color: var(--gray);
+    font-size: 0.95rem;
   }
 
   .about-image {
@@ -349,6 +355,12 @@
     margin: 0 auto;
   }
 
+  .experience-content p {
+    color: var(--gray);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
   .experience-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -396,6 +408,7 @@
   .contact-info p {
     margin-bottom: 2rem;
     font-size: 1.1rem;
+    color: var(--gray);
   }
 
   .contact-details {
@@ -412,7 +425,7 @@
   .contact-icon {
     width: 50px;
     height: 50px;
-    background: rgba(74, 157, 255, 0.1);
+    background: rgba(42, 107, 197, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -707,17 +720,6 @@
   @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-  }
-
-  .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
   }
 </style>
 </head>
@@ -1088,21 +1090,6 @@
       });
     });
     
-    // Scroll animations
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    fadeElements.forEach(el => {
-      observer.observe(el);
-    });
-    
     // Form submission
     const contactForm = document.getElementById('contactForm');
     
@@ -1112,11 +1099,6 @@
       // Here you would typically send the form data to a server
       alert('Gracias por tu mensaje. Te contactaremos pronto.');
       contactForm.reset();
-    });
-    
-    // Add fade-in class to sections
-    document.querySelectorAll('section').forEach(section => {
-      section.classList.add('fade-in');
     });
     
     // Header background on scroll
