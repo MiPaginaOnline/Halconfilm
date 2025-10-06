@@ -2,13 +2,14 @@
 <html lang="es">
 <head>
   <meta name="google-site-verification" content="zcqWNXO5PxwuhC8eUUWnLJH8WTvc4ASWszyT6URT9AM" />
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Halconfilm</title>
-<link rel="icon" href="Logotipo de Halconfilm.png" type="image/png">
-  <!-- Favicon para Google Search -->
-<link rel="icon" href="Logotipo de Halconfilm.png" sizes="32x32" type="image/png">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halconfilm</title>
+  <meta name="description" content="Halconfilm: Taller especializado en protección y personalización automotriz. Más de 10 años de experiencia en tintado, vinilos y cuidado de vehículos.">
+  <meta name="keywords" content="taller automotriz, tintado de lunas, protección vehicular, vinilos coche, personalización automóvil">
+  <link rel="icon" href="Logotipo de Halconfilm.png" type="image/png">
+  <link rel="icon" href="Logotipo de Halconfilm.png" sizes="32x32" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
   body {
     margin: 0;
@@ -33,13 +34,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(10, 15, 35, 0.35);
+    background: rgba(10, 15, 35, 0.85);
     backdrop-filter: blur(15px);
     padding: 0.8rem 2rem;
     border-radius: 50px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.5);
     width: 90%;
     max-width: 1000px;
+    border: 1px solid rgba(74, 157, 255, 0.2);
   }
 
   .logo {
@@ -54,16 +56,20 @@
   }
 
   nav ul { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
-  nav ul li a { color: #f5f5f5; text-decoration: none; font-weight: 500; transition: color 0.3s; }
+  nav ul li a { color: #f5f5f5; text-decoration: none; font-weight: 500; transition: color 0.3s; padding: 0.5rem 0; }
   nav ul li a:hover { color: #4a9dff; }
 
   .menu-toggle { display: none; flex-direction: column; cursor: pointer; }
-  .menu-toggle span { width: 25px; height: 3px; background: #fff; margin: 4px 0; border-radius: 2px; }
+  .menu-toggle span { width: 25px; height: 3px; background: #fff; margin: 4px 0; border-radius: 2px; transition: 0.3s; }
 
   @media (max-width: 768px) {
-    nav ul { display: none; flex-direction: column; position: absolute; top: 70px; right: 20px; background: rgba(10,15,35,0.95); padding:1rem; border-radius:12px; width:220px; }
+    header { padding: 0.8rem 1.5rem; }
+    nav ul { display: none; flex-direction: column; position: absolute; top: 70px; right: 20px; background: rgba(10,15,35,0.95); padding:1rem; border-radius:12px; width:220px; box-shadow: 0 10px 30px rgba(0,0,0,0.7); }
     nav ul.active { display: flex; }
     .menu-toggle { display: flex; }
+    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
   }
 
   /* Hero inicial */
@@ -93,10 +99,12 @@
     font-size: 3rem;
     margin-bottom: 1rem;
     animation: fadeInDown 1.5s ease;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
   }
   .hero-content p {
     font-size: 1.25rem;
     animation: fadeInUp 2s ease;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
   }
   @keyframes fadeInDown {
     from { opacity:0; transform: translateY(-30px); }
@@ -121,11 +129,23 @@
     margin-bottom: 1rem;
     font-size: 2rem;
     text-transform: capitalize;
-    transition: color 0.3s, transform 0.3s;
+    transition: color 0.3s;
+    position: relative;
+    display: inline-block;
   }
-  h2:hover {
-    transform: scale(1.03);
-    color: #66b3ff;
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #4a9dff;
+    transition: width 0.3s;
+  }
+  h2:hover::after {
+    width: 100px;
   }
 
   .principal {
@@ -134,11 +154,7 @@
     margin-bottom: 2rem;
     color: #ffffff;
     text-transform: capitalize;
-    transition: color 0.3s, transform 0.3s;
-  }
-  .principal:hover {
-    transform: scale(1.03);
-    color: #66b3ff;
+    transition: color 0.3s;
   }
 
   .box {
@@ -172,8 +188,9 @@
     transition: background 0.3s, transform 0.3s;
     display: inline-block;
     margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(74, 157, 255, 0.3);
   }
-  .contact-btn:hover { transform: translateY(-2px) scale(1.05); }
+  .contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(74, 157, 255, 0.4); }
 
   p { font-size: 1.15rem; line-height: 1.8; }
 
@@ -184,6 +201,7 @@
     color: #aaa;
     font-size: 0.9rem;
     margin-top: 2rem;
+    border-top: 1px solid rgba(74, 157, 255, 0.1);
   }
   footer p { margin: 0; }
 
@@ -201,6 +219,7 @@
     font-size: 0.95rem;
     z-index: 900;
     animation: fadeIn 1.5s ease-in-out;
+    border: 1px solid rgba(37, 211, 102, 0.2);
   }
   .dj-anuncio h3 {
     margin: 0 0 0.8rem;
@@ -226,6 +245,7 @@
     font-weight: bold;
     text-decoration: none;
     transition: transform 0.3s;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
   }
   .dj-btn img {
     height: 20px;
@@ -234,10 +254,47 @@
   }
   .dj-btn:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
   }
 
   @media (max-width: 1024px) {
     .dj-anuncio { display: none; }
+  }
+
+  /* Mejoras adicionales */
+  .testimonios {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .testimonio {
+    background: rgba(0,0,0,0.7);
+    padding: 1.5rem;
+    border-radius: 12px;
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    text-align: left;
+    border-top: 3px solid #4a9dff;
+  }
+  
+  .testimonio p {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+  
+  .cliente {
+    font-weight: bold;
+    color: #4a9dff;
+    text-align: right;
+  }
+  
+  .loading {
+    opacity: 0.7;
+    pointer-events: none;
   }
 </style>
 </head>
@@ -245,9 +302,9 @@
 
 <header>
   <div class="logo">
-    <img src="Captura_de_pantalla_2025-09-22_002443-removebg-preview.png" alt="Logo de Halconfilm con un halcón estilizado">
+    <img src="Captura_de_pantalla_2025-09-22_002443-removebg-preview.png" alt="Logo de Halconfilm - Especialistas en protección y personalización automotriz">
   </div>
-  <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+  <div class="menu-toggle" onclick="toggleMenu(this)">
     <span></span><span></span><span></span>
   </div>
   <nav>
@@ -255,6 +312,7 @@
       <li><a href="#protege">Protege Y Personaliza</a></li>
       <li><a href="#decada">Experiencia</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#testimonios">Clientes</a></li>
       <li><a href="#contacto">Contacto</a></li>
       <li><a href="galeria.html">Galería</a></li>
     </ul>
@@ -272,14 +330,14 @@
 <section id="protege">
   <div class="principal">Personalización y Protección a Tu Medida</div>
   <div class="box">
-    <p>En Halconfilm cuidamos cada detalle de tu coche. Nos especializamos en mejorar su <strong>estética</strong>, protegerlo con las mejores técnicas y materiales, y darle un toque único que refleje tu estilo. 🌟🚗</p>
+    <p>En Halconfilm cuidamos cada detalle de tu coche. Nos especializamos en mejorar su <strong>estética</strong>, protegerlo con las mejores técnicas y materiales, y darle un toque único que refleje tu estilo.</p>
   </div>
 </section>
 
 <section id="decada">
   <h2>Más De Una Década De Experiencia</h2>
   <div class="box">
-    <p>Desde 2008, hemos sido referentes en personalización y protección automotriz. Nuestra <strong>trayectoria</strong> garantiza la calidad de nuestro trabajo y la confianza de nuestros clientes. 💼</p>
+    <p>Desde 2008, hemos sido referentes en personalización y protección automotriz. Nuestra <strong>trayectoria</strong> garantiza la calidad de nuestro trabajo y la confianza de nuestros clientes.</p>
   </div>
 </section>
 
@@ -291,15 +349,33 @@
     <div class="box"><p><strong>Protección Avanzada De Cristales</strong> – Evita roturas y daños con películas de alta resistencia que garantizan seguridad y durabilidad.</p></div>
     <div class="box"><p><strong>Pulido Y Restauración De Ópticas</strong> – Recupera la claridad y luminosidad de tus faros para conducir con mayor seguridad y estilo.</p></div>
     <div class="box"><p><strong>Rotulación Y Vinilos De Alta Calidad</strong> – Personaliza tu coche con vinilos resistentes y diseños que marcan la diferencia.</p></div>
-    <div class="box"><p><strong>Cuidado Estético Completo</strong> – Tratamientos integrales que devuelven el brillo y protegen cada parte de tu vehículo. ✨</p></div>
+    <div class="box"><p><strong>Cuidado Estético Completo</strong> – Tratamientos integrales que devuelven el brillo y protegen cada parte de tu vehículo.</p></div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <h2>Opiniones de Nuestros Clientes</h2>
+  <div class="testimonios">
+    <div class="testimonio">
+      <p>"Excelente trabajo en el tintado de mi coche. Muy profesionales y el resultado impecable."</p>
+      <div class="cliente">- Javier M.</div>
+    </div>
+    <div class="testimonio">
+      <p>"Llevo años confiando en Halconfilm para el cuidado de mis vehículos. Siempre perfecto."</p>
+      <div class="cliente">- Ana R.</div>
+    </div>
+    <div class="testimonio">
+      <p>"Los vinilos que me instalaron han resistido perfectamente varios años. Muy recomendable."</p>
+      <div class="cliente">- Carlos L.</div>
+    </div>
   </div>
 </section>
 
 <section id="contacto">
   <h2>Contacto</h2>
   <div class="box">
-    <p>¿Quieres transformar tu vehículo y darle un aspecto único? Confía en nuestros especialistas y déjanos asesorarte con la mejor atención personalizada. 📲</p>
-    <a class="contact-btn" href="https://wa.me/34635871312" target="_blank">¡Contáctame en WhatsApp!</a>
+    <p>¿Quieres transformar tu vehículo y darle un aspecto único? Confía en nuestros especialistas y déjanos asesorarte con la mejor atención personalizada.</p>
+    <a class="contact-btn" href="https://wa.me/34635871312" target="_blank" aria-label="Contactar por WhatsApp">¡Contáctame en WhatsApp!</a>
   </div>
 </section>
 
@@ -309,11 +385,11 @@
 
 <!-- Anuncio DJ (solo en escritorio) -->
 <div class="dj-anuncio">
-  <h3>🎵 Servicios de DJ</h3>
-  <p>Eventos, bodas, cumpleaños, comuniones, fiestas privadas y más. <br><strong>En Tarragona</strong>.</p>
-  <a class="dj-btn" href="https://wa.me/34635871312" target="_blank">
+  <h3>Servicios de DJ</h3>
+  <p>Eventos, bodas, cumpleaños, comuniones, fiestas privadas y más. En Tarragona.</p>
+  <a class="dj-btn" href="https://wa.me/34635871312" target="_blank" aria-label="Información sobre servicios de DJ">
     Más información
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono de WhatsApp">
   </a>
 </div>
 
@@ -322,7 +398,34 @@
   document.querySelectorAll("nav ul li a").forEach(link => {
     link.addEventListener("click", () => {
       document.querySelector("nav ul").classList.remove("active");
+      document.querySelector(".menu-toggle").classList.remove("active");
     });
+  });
+  
+  // Animación del menú hamburguesa
+  function toggleMenu(x) {
+    x.classList.toggle("active");
+    document.querySelector("nav ul").classList.toggle("active");
+  }
+  
+  // Efecto de carga para botones
+  document.querySelectorAll('.contact-btn, .dj-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.classList.add('loading');
+      setTimeout(() => {
+        this.classList.remove('loading');
+      }, 1000);
+    });
+  });
+  
+  // Detectar scroll para efecto en header
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.style.background = 'rgba(10, 15, 35, 0.95)';
+    } else {
+      header.style.background = 'rgba(10, 15, 35, 0.85)';
+    }
   });
 </script>
 </body>
