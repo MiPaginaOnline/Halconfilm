@@ -310,6 +310,9 @@
     color: var(--gray);
     font-size: 1.2rem;
     text-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
   }
 
   .about-image-placeholder i {
@@ -331,11 +334,49 @@
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s;
+    z-index: 10;
   }
 
   .gallery-link:hover {
     background: var(--primary-dark);
     transform: translateX(-50%) translateY(-2px);
+  }
+
+  /* Gallery Slider */
+  .gallery-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .slide-content {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    max-width: 80%;
   }
 
   /* Services Section */
@@ -435,9 +476,80 @@
     color: var(--light);
   }
 
+  /* Location Section */
+  .location {
+    background: var(--dark-light);
+  }
+
+  .location-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .location-info {
+    padding-right: 1rem;
+  }
+
+  .location-info h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--light);
+  }
+
+  .location-info p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--gray);
+  }
+
+  .location-details {
+    margin-top: 2rem;
+  }
+
+  .location-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .location-icon {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-top: 5px;
+  }
+
+  .location-text h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--light);
+  }
+
+  .location-text p {
+    color: var(--gray);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    height: 400px;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
   /* Contact Section */
   .contact {
-    background: var(--dark-light);
+    background: var(--dark);
   }
 
   .contact-content {
@@ -808,8 +920,8 @@
       grid-template-columns: 1fr;
     }
     
-    .about-image {
-      order: -1;
+    .location-content {
+      grid-template-columns: 1fr;
     }
     
     .hero h1 {
@@ -881,6 +993,18 @@
       height: 400px;
     }
     
+    /* Chat en móviles - esquina inferior derecha */
+    .chat-assistant {
+      left: auto;
+      right: 20px;
+      bottom: 20px;
+    }
+    
+    .chat-container {
+      left: auto;
+      right: 0;
+    }
+    
     .menu-toggle.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
@@ -891,6 +1015,11 @@
     
     .menu-toggle.active span:nth-child(3) {
       transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* En móviles, la galería va al final de la sección */
+    .about-content .about-image {
+      order: 2;
     }
   }
 
@@ -909,7 +1038,18 @@
     
     .chat-container {
       width: 280px;
-      left: -20px;
+      right: -20px;
+    }
+    
+    .chat-input {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .chat-input button {
+      width: 100%;
+      border-radius: 30px;
+      margin-left: 0;
     }
   }
 
@@ -996,9 +1136,25 @@
         </div>
         
         <div class="about-image">
-          <div class="about-image-placeholder">
-            <i class="fas fa-images"></i>
-            <p>Galería de nuestros trabajos</p>
+          <div class="gallery-slider" id="gallerySlider">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+              <div class="slide-content">
+                <h4>Tintado Profesional</h4>
+                <p>Protección y estilo para tu vehículo</p>
+              </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+              <div class="slide-content">
+                <h4>Vinilos Personalizados</h4>
+                <p>Diseños únicos para tu coche</p>
+              </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1551524164-6ca5e3aa1c04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+              <div class="slide-content">
+                <h4>Protección de Cristales</h4>
+                <p>Seguridad y durabilidad garantizada</p>
+              </div>
+            </div>
           </div>
           <a href="galeria.html" class="gallery-link">Ver Galería</a>
         </div>
@@ -1105,6 +1261,60 @@
     </div>
   </section>
 
+  <!-- Location Section -->
+  <section class="location" id="ubicacion">
+    <div class="container">
+      <div class="section-title">
+        <h2>Nuestra Ubicación</h2>
+        <p>Visítanos en nuestro taller en Tarragona</p>
+      </div>
+      
+      <div class="location-content">
+        <div class="location-info">
+          <h3>Encuéntranos Fácilmente</h3>
+          <p>Estamos ubicados en el corazón de Tarragona, con fácil acceso y parking disponible para nuestros clientes.</p>
+          
+          <div class="location-details">
+            <div class="location-item">
+              <div class="location-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="location-text">
+                <h4>Dirección</h4>
+                <p>Carrer Tres, 49, Bonavista, 43100 Tarragona</p>
+              </div>
+            </div>
+            
+            <div class="location-item">
+              <div class="location-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="location-text">
+                <h4>Horario de Atención</h4>
+                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                <p>Sábados: 9:00 - 13:00</p>
+              </div>
+            </div>
+            
+            <div class="location-item">
+              <div class="location-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="location-text">
+                <h4>Teléfono</h4>
+                <p>+34 635 871 312</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.015885052578!2d1.2873597760714264!3d41.11888797131242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a3f5f5c5c5c5c5%3A0x5c5c5c5c5c5c5c5c!2sCarrer%20Tres%2C%2049%2C%2043100%20Tarragona!5e0!3m2!1ses!2ses!4v1690000000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section class="contact" id="contacto">
     <div class="container">
@@ -1180,6 +1390,7 @@
             <li><a href="#nosotros">Nosotros</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
             <li><a href="#contacto">Contacto</a></li>
             <li><a href="galeria.html">Galería</a></li>
           </ul>
@@ -1261,6 +1472,22 @@
       }
     });
 
+    // Gallery Slider
+    const gallerySlider = document.getElementById('gallerySlider');
+    if (gallerySlider) {
+      const slides = gallerySlider.querySelectorAll('.slide');
+      let currentSlide = 0;
+      
+      function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }
+      
+      // Cambiar slide cada 5 segundos
+      setInterval(nextSlide, 5000);
+    }
+
     // Chat Assistant
     const chatToggle = document.getElementById('chatToggle');
     const chatContainer = document.getElementById('chatContainer');
@@ -1288,8 +1515,9 @@
       userMessage.textContent = message;
       chatMessages.appendChild(userMessage);
       
-      // Clear input
+      // Clear input and hide keyboard on mobile
       chatInput.value = '';
+      chatInput.blur(); // Esto oculta el teclado en móviles
       
       // Scroll to bottom
       chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -1338,7 +1566,7 @@
       });
     });
 
-    // Bot response logic
+    // Bot response logic - Mejorado para responder preguntas personalizadas
     function getBotResponse(message) {
       const lowerMessage = message.toLowerCase();
       
@@ -1348,37 +1576,47 @@
       }
       
       // Location
-      if (lowerMessage.includes('dónde') || lowerMessage.includes('ubicación') || lowerMessage.includes('ubicados')) {
-        return 'Estamos ubicados en Tarragona, España. Puedes contactarnos para obtener la dirección exacta.';
+      if (lowerMessage.includes('dónde') || lowerMessage.includes('ubicación') || lowerMessage.includes('ubicados') || lowerMessage.includes('dirección')) {
+        return 'Estamos ubicados en Carrer Tres, 49, Bonavista, 43100 Tarragona. Puedes usar Google Maps para encontrar nuestra ubicación exacta.';
       }
       
       // Contact
-      if (lowerMessage.includes('contacto') || lowerMessage.includes('teléfono') || lowerMessage.includes('whatsapp')) {
+      if (lowerMessage.includes('contacto') || lowerMessage.includes('teléfono') || lowerMessage.includes('whatsapp') || lowerMessage.includes('llamar')) {
         return 'Puedes contactarnos al +34 635 871 312 o a través de WhatsApp haciendo clic en el botón de contacto de nuestra página. Estamos disponibles para atenderte.';
       }
       
       // Experience
-      if (lowerMessage.includes('experiencia') || lowerMessage.includes('años') || lowerMessage.includes('cuánto tiempo')) {
+      if (lowerMessage.includes('experiencia') || lowerMessage.includes('años') || lowerMessage.includes('cuánto tiempo') || lowerMessage.includes('trayectoria')) {
         return 'Contamos con más de 15 años de experiencia en protección y personalización automotriz. Desde 2008 hemos sido referentes en el sector.';
       }
       
       // Pricing
-      if (lowerMessage.includes('precio') || lowerMessage.includes('cuánto cuesta') || lowerMessage.includes('coste')) {
+      if (lowerMessage.includes('precio') || lowerMessage.includes('cuánto cuesta') || lowerMessage.includes('coste') || lowerMessage.includes('presupuesto')) {
         return 'Los precios varían según el servicio y las características de tu vehículo. Te recomendamos contactarnos para una cotización personalizada sin compromiso.';
       }
       
       // Hours
-      if (lowerMessage.includes('horario') || lowerMessage.includes('cuándo abren') || lowerMessage.includes('disponibilidad')) {
-        return 'Puedes contactarnos para consultar nuestros horarios de atención. Estamos disponibles para atenderte y programar una cita.';
+      if (lowerMessage.includes('horario') || lowerMessage.includes('cuándo abren') || lowerMessage.includes('disponibilidad') || lowerMessage.includes('atienen')) {
+        return 'Nuestro horario de atención es de Lunes a Viernes de 9:00 a 18:00 y Sábados de 9:00 a 13:00. Puedes contactarnos para programar una cita.';
       }
       
       // Gallery
-      if (lowerMessage.includes('galería') || lowerMessage.includes('trabajos') || lowerMessage.includes('ejemplos')) {
+      if (lowerMessage.includes('galería') || lowerMessage.includes('trabajos') || lowerMessage.includes('ejemplos') || lowerMessage.includes('fotos')) {
         return 'Puedes ver ejemplos de nuestros trabajos en la galería de nuestra página web. Tenemos una amplia variedad de proyectos realizados.';
       }
       
-      // Default response
-      return 'Gracias por tu mensaje. Para obtener información más específica sobre nuestros servicios, ubicación o precios, no dudes en contactarnos directamente. Estaremos encantados de ayudarte.';
+      // Greetings
+      if (lowerMessage.includes('hola') || lowerMessage.includes('buenas')) {
+        return '¡Hola! Soy el asistente virtual de Halconfilm. ¿En qué puedo ayudarte? Puedes preguntarme sobre nuestros servicios, ubicación, horarios o cualquier otra información.';
+      }
+      
+      // Thank you
+      if (lowerMessage.includes('gracias')) {
+        return '¡De nada! Estoy aquí para ayudarte. Si tienes más preguntas, no dudes en consultarme.';
+      }
+      
+      // Default response - Más personalizado
+      return 'Gracias por tu mensaje. Para obtener información más específica sobre nuestros servicios, ubicación, horarios o precios, no dudes en contactarnos directamente al +34 635 871 312. Estaremos encantados de ayudarte personalmente.';
     }
   </script>
 </body>
