@@ -628,6 +628,180 @@
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
   }
 
+  /* Chat Assistant */
+  .chat-assistant {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+
+  .chat-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(42, 107, 197, 0.4);
+    transition: all 0.3s;
+    border: none;
+  }
+
+  .chat-toggle:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+  }
+
+  .chat-container {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 350px;
+    height: 450px;
+    background: var(--dark-light);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .chat-container.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .chat-header {
+    background: var(--primary);
+    padding: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .chat-header h3 {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .chat-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  .chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .message {
+    max-width: 80%;
+    padding: 0.8rem 1rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .bot-message {
+    background: rgba(42, 107, 197, 0.2);
+    border-bottom-left-radius: 5px;
+    align-self: flex-start;
+    color: var(--light);
+  }
+
+  .user-message {
+    background: var(--primary);
+    border-bottom-right-radius: 5px;
+    align-self: flex-end;
+    color: white;
+  }
+
+  .chat-input {
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.2);
+  }
+
+  .chat-input input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.1);
+    color: var(--light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+  }
+
+  .chat-input input:focus {
+    outline: none;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .chat-input button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .chat-input button:hover {
+    background: var(--primary-dark);
+  }
+
+  .quick-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .quick-question {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    color: var(--light);
+    font-size: 0.8rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .quick-question:hover {
+    background: rgba(42, 107, 197, 0.3);
+  }
+
   /* Responsive */
   @media (max-width: 992px) {
     .about-content {
@@ -702,6 +876,11 @@
       display: none;
     }
     
+    .chat-container {
+      width: 300px;
+      height: 400px;
+    }
+    
     .menu-toggle.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
@@ -726,6 +905,11 @@
     
     .experience-stats {
       grid-template-columns: 1fr;
+    }
+    
+    .chat-container {
+      width: 280px;
+      left: -20px;
     }
   }
 
@@ -972,8 +1156,8 @@
           <h3>Halconfilm</h3>
           <p>Especialistas en protección y personalización automotriz con más de 15 años de experiencia.</p>
           <div class="social-links">
-            <a href="#" class="https://www.facebook.com/halconfilm/?locale=es_ES"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="https://www.instagram.com/halconfilm/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/halconfilm/?locale=es_ES" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/halconfilm/" class="social-link"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/34635871312" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
@@ -1017,6 +1201,38 @@
     </a>
   </div>
 
+  <!-- Chat Assistant -->
+  <div class="chat-assistant">
+    <button class="chat-toggle" id="chatToggle">
+      <i class="fas fa-comments"></i>
+    </button>
+    <div class="chat-container" id="chatContainer">
+      <div class="chat-header">
+        <h3><i class="fas fa-robot"></i> Asistente Halconfilm</h3>
+        <button class="chat-close" id="chatClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+          ¡Hola! Soy el asistente virtual de Halconfilm. ¿En qué puedo ayudarte hoy?
+        </div>
+        <div class="quick-questions">
+          <button class="quick-question" data-question="¿Qué servicios ofrecen?">¿Qué servicios ofrecen?</button>
+          <button class="quick-question" data-question="¿Dónde están ubicados?">¿Dónde están ubicados?</button>
+          <button class="quick-question" data-question="¿Cómo puedo contactarlos?">¿Cómo puedo contactarlos?</button>
+          <button class="quick-question" data-question="¿Tienen experiencia en el sector?">¿Tienen experiencia en el sector?</button>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+        <button id="sendMessage">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Menu Toggle
     const menuToggle = document.getElementById('menuToggle');
@@ -1044,6 +1260,126 @@
         header.style.background = 'rgba(10, 15, 35, 0.95)';
       }
     });
+
+    // Chat Assistant
+    const chatToggle = document.getElementById('chatToggle');
+    const chatContainer = document.getElementById('chatContainer');
+    const chatClose = document.getElementById('chatClose');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+    const sendMessage = document.getElementById('sendMessage');
+    const quickQuestions = document.querySelectorAll('.quick-question');
+
+    // Toggle chat window
+    chatToggle.addEventListener('click', () => {
+      chatContainer.classList.toggle('active');
+    });
+
+    // Close chat window
+    chatClose.addEventListener('click', () => {
+      chatContainer.classList.remove('active');
+    });
+
+    // Send message function
+    function sendUserMessage(message) {
+      // Add user message
+      const userMessage = document.createElement('div');
+      userMessage.classList.add('message', 'user-message');
+      userMessage.textContent = message;
+      chatMessages.appendChild(userMessage);
+      
+      // Clear input
+      chatInput.value = '';
+      
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      // Show typing indicator
+      const typingIndicator = document.createElement('div');
+      typingIndicator.classList.add('message', 'bot-message');
+      typingIndicator.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
+      chatMessages.appendChild(typingIndicator);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      
+      // Get bot response after a delay
+      setTimeout(() => {
+        // Remove typing indicator
+        typingIndicator.remove();
+        
+        // Add bot response
+        const botResponse = document.createElement('div');
+        botResponse.classList.add('message', 'bot-message');
+        botResponse.textContent = getBotResponse(message);
+        chatMessages.appendChild(botResponse);
+        
+        // Scroll to bottom
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 1000);
+    }
+
+    // Send message on button click
+    sendMessage.addEventListener('click', () => {
+      if (chatInput.value.trim() !== '') {
+        sendUserMessage(chatInput.value);
+      }
+    });
+
+    // Send message on Enter key
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && chatInput.value.trim() !== '') {
+        sendUserMessage(chatInput.value);
+      }
+    });
+
+    // Quick questions
+    quickQuestions.forEach(button => {
+      button.addEventListener('click', () => {
+        sendUserMessage(button.getAttribute('data-question'));
+      });
+    });
+
+    // Bot response logic
+    function getBotResponse(message) {
+      const lowerMessage = message.toLowerCase();
+      
+      // Services
+      if (lowerMessage.includes('servicio') || lowerMessage.includes('qué ofrecen') || lowerMessage.includes('qué hacen')) {
+        return 'Ofrecemos tintado profesional de lunas, protección avanzada de cristales, rotulación y vinilos, pulido de ópticas, tratamientos estéticos y personalización textil. Puedes ver más detalles en la sección de servicios de nuestra página.';
+      }
+      
+      // Location
+      if (lowerMessage.includes('dónde') || lowerMessage.includes('ubicación') || lowerMessage.includes('ubicados')) {
+        return 'Estamos ubicados en Tarragona, España. Puedes contactarnos para obtener la dirección exacta.';
+      }
+      
+      // Contact
+      if (lowerMessage.includes('contacto') || lowerMessage.includes('teléfono') || lowerMessage.includes('whatsapp')) {
+        return 'Puedes contactarnos al +34 635 871 312 o a través de WhatsApp haciendo clic en el botón de contacto de nuestra página. Estamos disponibles para atenderte.';
+      }
+      
+      // Experience
+      if (lowerMessage.includes('experiencia') || lowerMessage.includes('años') || lowerMessage.includes('cuánto tiempo')) {
+        return 'Contamos con más de 15 años de experiencia en protección y personalización automotriz. Desde 2008 hemos sido referentes en el sector.';
+      }
+      
+      // Pricing
+      if (lowerMessage.includes('precio') || lowerMessage.includes('cuánto cuesta') || lowerMessage.includes('coste')) {
+        return 'Los precios varían según el servicio y las características de tu vehículo. Te recomendamos contactarnos para una cotización personalizada sin compromiso.';
+      }
+      
+      // Hours
+      if (lowerMessage.includes('horario') || lowerMessage.includes('cuándo abren') || lowerMessage.includes('disponibilidad')) {
+        return 'Puedes contactarnos para consultar nuestros horarios de atención. Estamos disponibles para atenderte y programar una cita.';
+      }
+      
+      // Gallery
+      if (lowerMessage.includes('galería') || lowerMessage.includes('trabajos') || lowerMessage.includes('ejemplos')) {
+        return 'Puedes ver ejemplos de nuestros trabajos en la galería de nuestra página web. Tenemos una amplia variedad de proyectos realizados.';
+      }
+      
+      // Default response
+      return 'Gracias por tu mensaje. Para obtener información más específica sobre nuestros servicios, ubicación o precios, no dudes en contactarnos directamente. Estaremos encantados de ayudarte.';
+    }
   </script>
 </body>
 </html>
